@@ -1,0 +1,38 @@
+PODS:
+  - Alamofire (4.7.3)
+  - Realm (3.11.0):
+    - Realm/Headers (= 3.11.0)
+  - Realm/Headers (3.11.0)
+  - RealmSwift (3.11.0):
+    - Realm (= 3.11.0)
+  - Reusable (4.0.3):
+    - Reusable/Storyboard (= 4.0.3)
+    - Reusable/View (= 4.0.3)
+  - Reusable/Storyboard (4.0.3)
+  - Reusable/View (4.0.3)
+  - SwiftyBeaver (1.6.1)
+
+DEPENDENCIES:
+  - Alamofire
+  - RealmSwift
+  - Reusable
+  - SwiftyBeaver
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - Realm
+    - RealmSwift
+    - Reusable
+    - SwiftyBeaver
+
+SPEC CHECKSUMS:
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  Realm: 92f09a102692b96a9a10e9617f214f15c5ab85fc
+  RealmSwift: 5f0481cd658bb751c509314b964a35eaa264d2cf
+  Reusable: 12b67a60e1f3e8c523cc910795dab733f58fbc7e
+  SwiftyBeaver: ccfcdf85a04d429f1633f668650b0ce8020bda3a
+
+PODFILE CHECKSUM: 46f61a0885b82278b1edd92c87fd854848ff0f6d
+
+COCOAPODS: 1.5.3
