@@ -1,0 +1,29 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'Forcast' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for Forcast
+  # DB - Services
+  pod 'Alamofire'
+  pod 'RealmSwift'
+
+  #Utilities UI
+  pod 'Reusable'
+
+  #Logs
+  pod 'SwiftyBeaver'
+
+  target 'ForcastTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'ForcastUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
