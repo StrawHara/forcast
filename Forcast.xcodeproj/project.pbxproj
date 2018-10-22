@@ -22,6 +22,19 @@
 		D35C67EA217E25E7009CFDF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D35C67DA217E25E7009CFDF8 /* LaunchScreen.storyboard */; };
 		D35C67EB217E25E7009CFDF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D35C67DC217E25E7009CFDF8 /* Main.storyboard */; };
 		D35C67EC217E25E7009CFDF8 /* Forcast.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D35C67DE217E25E7009CFDF8 /* Forcast.xcdatamodeld */; };
+		D35C67F2217E37F9009CFDF8 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35C67F1217E37F9009CFDF8 /* AppCoordinator.swift */; };
+		D35C67F4217E383A009CFDF8 /* CitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35C67F3217E383A009CFDF8 /* CitiesViewController.swift */; };
+		D35C67F6217E38CB009CFDF8 /* Logs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35C67F5217E38CB009CFDF8 /* Logs.swift */; };
+		D35C67F8217E38F1009CFDF8 /* CitiesViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D35C67F7217E38F1009CFDF8 /* CitiesViewController.storyboard */; };
+		D35C67FA217E3948009CFDF8 /* AddCityViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D35C67F9217E3948009CFDF8 /* AddCityViewController.storyboard */; };
+		D35C67FC217E3956009CFDF8 /* AddCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35C67FB217E3956009CFDF8 /* AddCityViewController.swift */; };
+		D35C67FE217E3A0F009CFDF8 /* StoryboardBased.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35C67FD217E3A0F009CFDF8 /* StoryboardBased.swift */; };
+		D35C680D217E4459009CFDF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D35C6800217E4459009CFDF8 /* LaunchScreen.storyboard */; };
+		D35C680E217E4459009CFDF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D35C6802217E4459009CFDF8 /* Main.storyboard */; };
+		D35C680F217E4459009CFDF8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D35C6804217E4459009CFDF8 /* Localizable.strings */; };
+		D35C6810217E4459009CFDF8 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = D35C6806217E4459009CFDF8 /* Localizable.stringsdict */; };
+		D35C6811217E4459009CFDF8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D35C6809217E4459009CFDF8 /* Localizable.strings */; };
+		D35C6812217E4459009CFDF8 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = D35C680B217E4459009CFDF8 /* Localizable.stringsdict */; };
 		EC862C1C505DCF6246D46DB0 /* Pods_ForcastTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0714CE4871FF4F21AE8C5101 /* Pods_ForcastTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +80,19 @@
 		D35C67DD217E25E7009CFDF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D35C67DF217E25E7009CFDF8 /* Forcast.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Forcast.xcdatamodel; sourceTree = "<group>"; };
 		D35C67E0217E25E7009CFDF8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D35C67F1217E37F9009CFDF8 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		D35C67F3217E383A009CFDF8 /* CitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesViewController.swift; sourceTree = "<group>"; };
+		D35C67F5217E38CB009CFDF8 /* Logs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logs.swift; sourceTree = "<group>"; };
+		D35C67F7217E38F1009CFDF8 /* CitiesViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CitiesViewController.storyboard; sourceTree = "<group>"; };
+		D35C67F9217E3948009CFDF8 /* AddCityViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddCityViewController.storyboard; sourceTree = "<group>"; };
+		D35C67FB217E3956009CFDF8 /* AddCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCityViewController.swift; sourceTree = "<group>"; };
+		D35C67FD217E3A0F009CFDF8 /* StoryboardBased.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardBased.swift; sourceTree = "<group>"; };
+		D35C6801217E4459009CFDF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D35C6803217E4459009CFDF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
+		D35C6805217E4459009CFDF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Localizable.strings; sourceTree = "<group>"; };
+		D35C6807217E4459009CFDF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = Base; path = Localizable.stringsdict; sourceTree = "<group>"; };
+		D35C680A217E4459009CFDF8 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = Localizable.strings; sourceTree = "<group>"; };
+		D35C680C217E4459009CFDF8 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = fr; path = Localizable.stringsdict; sourceTree = "<group>"; };
 		DCC0A191C87C94C707CE9575 /* Pods-ForcastTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForcastTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ForcastTests/Pods-ForcastTests.release.xcconfig"; sourceTree = "<group>"; };
 		F452DD1A0A12571EF5ECE651 /* Pods_ForcastUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ForcastUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA714ABD1B952CD701F38CE5 /* Pods_Forcast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Forcast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -191,6 +217,7 @@
 		D35C67C7217E25E6009CFDF8 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				D35C67F1217E37F9009CFDF8 /* AppCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -198,10 +225,10 @@
 		D35C67C8217E25E6009CFDF8 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				D35C67C9217E25E6009CFDF8 /* City */,
-				D35C67CA217E25E6009CFDF8 /* Shared */,
-				D35C67CD217E25E6009CFDF8 /* AddCity */,
 				D35C67CE217E25E6009CFDF8 /* Cities */,
+				D35C67C9217E25E6009CFDF8 /* City */,
+				D35C67CD217E25E6009CFDF8 /* AddCity */,
+				D35C67CA217E25E6009CFDF8 /* Shared */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -239,6 +266,8 @@
 		D35C67CD217E25E6009CFDF8 /* AddCity */ = {
 			isa = PBXGroup;
 			children = (
+				D35C67FB217E3956009CFDF8 /* AddCityViewController.swift */,
+				D35C67F9217E3948009CFDF8 /* AddCityViewController.storyboard */,
 			);
 			path = AddCity;
 			sourceTree = "<group>";
@@ -246,6 +275,8 @@
 		D35C67CE217E25E6009CFDF8 /* Cities */ = {
 			isa = PBXGroup;
 			children = (
+				D35C67F3217E383A009CFDF8 /* CitiesViewController.swift */,
+				D35C67F7217E38F1009CFDF8 /* CitiesViewController.storyboard */,
 			);
 			path = Cities;
 			sourceTree = "<group>";
@@ -265,6 +296,7 @@
 		D35C67D5217E25E7009CFDF8 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				D35C67F5217E38CB009CFDF8 /* Logs.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -279,6 +311,8 @@
 		D35C67D7217E25E7009CFDF8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D35C67FF217E4459009CFDF8 /* Base.lproj */,
+				D35C6808217E4459009CFDF8 /* fr.lproj */,
 				D35C67D8217E25E7009CFDF8 /* ViewController.swift */,
 				D35C67D9217E25E7009CFDF8 /* Assets.xcassets */,
 				D35C67DA217E25E7009CFDF8 /* LaunchScreen.storyboard */,
@@ -299,8 +333,29 @@
 		D35C67E2217E25E7009CFDF8 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				D35C67FD217E3A0F009CFDF8 /* StoryboardBased.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		D35C67FF217E4459009CFDF8 /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				D35C6800217E4459009CFDF8 /* LaunchScreen.storyboard */,
+				D35C6802217E4459009CFDF8 /* Main.storyboard */,
+				D35C6804217E4459009CFDF8 /* Localizable.strings */,
+				D35C6806217E4459009CFDF8 /* Localizable.stringsdict */,
+			);
+			path = Base.lproj;
+			sourceTree = "<group>";
+		};
+		D35C6808217E4459009CFDF8 /* fr.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				D35C6809217E4459009CFDF8 /* Localizable.strings */,
+				D35C680B217E4459009CFDF8 /* Localizable.stringsdict */,
+			);
+			path = fr.lproj;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -396,6 +451,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = D31CC30D217E03CC00D6FFD1;
 			productRefGroup = D31CC317217E03CC00D6FFD1 /* Products */;
@@ -414,8 +470,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D35C67FA217E3948009CFDF8 /* AddCityViewController.storyboard in Resources */,
 				D35C67EA217E25E7009CFDF8 /* LaunchScreen.storyboard in Resources */,
+				D35C6811217E4459009CFDF8 /* Localizable.strings in Resources */,
 				D35C67E9217E25E7009CFDF8 /* Assets.xcassets in Resources */,
+				D35C6810217E4459009CFDF8 /* Localizable.stringsdict in Resources */,
+				D35C6812217E4459009CFDF8 /* Localizable.stringsdict in Resources */,
+				D35C680E217E4459009CFDF8 /* Main.storyboard in Resources */,
+				D35C680F217E4459009CFDF8 /* Localizable.strings in Resources */,
+				D35C67F8217E38F1009CFDF8 /* CitiesViewController.storyboard in Resources */,
+				D35C680D217E4459009CFDF8 /* LaunchScreen.storyboard in Resources */,
 				D35C67E4217E25E7009CFDF8 /* colors.xml in Resources */,
 				D35C67EB217E25E7009CFDF8 /* Main.storyboard in Resources */,
 			);
@@ -598,7 +662,12 @@
 				D35C67E8217E25E7009CFDF8 /* ViewController.swift in Sources */,
 				D35C67E5217E25E7009CFDF8 /* Storyboards.swift in Sources */,
 				D35C67E7217E25E7009CFDF8 /* Colors.swift in Sources */,
+				D35C67F4217E383A009CFDF8 /* CitiesViewController.swift in Sources */,
+				D35C67FE217E3A0F009CFDF8 /* StoryboardBased.swift in Sources */,
 				D35C67EC217E25E7009CFDF8 /* Forcast.xcdatamodeld in Sources */,
+				D35C67F2217E37F9009CFDF8 /* AppCoordinator.swift in Sources */,
+				D35C67F6217E38CB009CFDF8 /* Logs.swift in Sources */,
+				D35C67FC217E3956009CFDF8 /* AddCityViewController.swift in Sources */,
 				D35C67E6217E25E7009CFDF8 /* Images.swift in Sources */,
 				D35C67E3217E25E7009CFDF8 /* Strings.swift in Sources */,
 				D31CC31A217E03CC00D6FFD1 /* AppDelegate.swift in Sources */,
@@ -651,6 +720,54 @@
 				D35C67DD217E25E7009CFDF8 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D35C6800217E4459009CFDF8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D35C6801217E4459009CFDF8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		D35C6802217E4459009CFDF8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D35C6803217E4459009CFDF8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D35C6804217E4459009CFDF8 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D35C6805217E4459009CFDF8 /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		D35C6806217E4459009CFDF8 /* Localizable.stringsdict */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D35C6807217E4459009CFDF8 /* Base */,
+			);
+			name = Localizable.stringsdict;
+			sourceTree = "<group>";
+		};
+		D35C6809217E4459009CFDF8 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D35C680A217E4459009CFDF8 /* fr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		D35C680B217E4459009CFDF8 /* Localizable.stringsdict */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D35C680C217E4459009CFDF8 /* fr */,
+			);
+			name = Localizable.stringsdict;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

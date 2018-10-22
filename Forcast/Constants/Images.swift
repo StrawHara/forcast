@@ -44,6 +44,10 @@ internal struct ColorAsset {
 
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
 internal enum Asset {
+  internal enum Tabbar {
+    internal static let city = ImageAsset(name: "city")
+    internal static let plus = ImageAsset(name: "plus")
+  }
   internal enum WeatherIcon {
     internal static let brokenCloudsDay = ImageAsset(name: "broken_clouds_day")
     internal static let brokenCloudsNight = ImageAsset(name: "broken_clouds_night")
@@ -68,6 +72,8 @@ internal enum Asset {
   internal static let allColors: [ColorAsset] = [
   ]
   internal static let allImages: [ImageAsset] = [
+    Tabbar.city,
+    Tabbar.plus,
     WeatherIcon.brokenCloudsDay,
     WeatherIcon.brokenCloudsNight,
     WeatherIcon.clearSkyDay,
