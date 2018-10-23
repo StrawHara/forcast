@@ -10,12 +10,17 @@ PODS:
     - Reusable/View (= 4.0.3)
   - Reusable/Storyboard (4.0.3)
   - Reusable/View (4.0.3)
+  - RxCocoa (4.3.1):
+    - RxSwift (~> 4.0)
+  - RxSwift (4.3.1)
   - SwiftyBeaver (1.6.1)
 
 DEPENDENCIES:
   - Alamofire
   - RealmSwift
   - Reusable
+  - RxCocoa
+  - RxSwift
   - SwiftyBeaver
 
 SPEC REPOS:
@@ -24,6 +29,8 @@ SPEC REPOS:
     - Realm
     - RealmSwift
     - Reusable
+    - RxCocoa
+    - RxSwift
     - SwiftyBeaver
 
 SPEC CHECKSUMS:
@@ -31,8 +38,10 @@ SPEC CHECKSUMS:
   Realm: 92f09a102692b96a9a10e9617f214f15c5ab85fc
   RealmSwift: 5f0481cd658bb751c509314b964a35eaa264d2cf
   Reusable: 12b67a60e1f3e8c523cc910795dab733f58fbc7e
+  RxCocoa: 78763c7b07d02455598d9fc3c1ad091a28b73635
+  RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
   SwiftyBeaver: ccfcdf85a04d429f1633f668650b0ce8020bda3a
 
-PODFILE CHECKSUM: 46f61a0885b82278b1edd92c87fd854848ff0f6d
+PODFILE CHECKSUM: 87fc6755cbdcd9d92295a2e1edbba5aee082b2b9
 
 COCOAPODS: 1.5.3

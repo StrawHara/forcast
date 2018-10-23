@@ -5,7 +5,6 @@ target 'Forcast' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for Forcast
   # DB - Services
   pod 'Alamofire'
   pod 'RealmSwift'
@@ -13,9 +12,11 @@ target 'Forcast' do
   #Utilities UI
   pod 'Reusable'
 
-  #Logs
+  # Utilities
+  pod 'RxSwift'
+  pod 'RxCocoa'
   pod 'SwiftyBeaver'
-
+  
   target 'ForcastTests' do
     inherit! :search_paths
     # Pods for testing
