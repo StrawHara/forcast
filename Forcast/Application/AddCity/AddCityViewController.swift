@@ -10,4 +10,6 @@ import UIKit
 
 final class AddCityViewController: UIViewController, StoryboardBased {
   
+  //48°51′24″N 2°21′03″E -- Paris Coord
+  
 }

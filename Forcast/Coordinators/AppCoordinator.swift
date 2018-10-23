@@ -57,6 +57,14 @@ class AppCoordinator: NSObject {
 // TODO: vv
 //    self.webServices.fetchHistory()
 
+    // Check if favorites or paris as first one -> Mean default db or default nsuserdefault
+    // Favorites sotred in userDefault
+    // Store Paris if no one setted
+    
+    // Load app on list with only paris
+    // empty view -> redirect to add City
+    
+    
     self.launch()
   }
   
