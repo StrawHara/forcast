@@ -16,7 +16,7 @@ final class FCCity: Object, Decodable {
   @objc dynamic var name: String = ""
   @objc dynamic var coord: FCCoord?
   
-  var weather: FCWeather?
+  @objc dynamic var weather: FCWeather?
   
   var forecast = List<FCWeather>()
   

@@ -30,8 +30,11 @@ final class JSONSerializer {
         let citiesData = try JSONSerialization.data(withJSONObject: json["list"] ?? [], options: [])
         
         let cities = try jsonDecoder.decode([FCCity].self, from: citiesData)
+        let weathers = try jsonDecoder.decode([FCWeather].self, from: citiesData)
         
-        log.info(cities)
+        for (iterator, weather) in weathers.enumerated() {
+          cities[iterator].weather = weather
+        }
         
         let realm = Realm.safeInstance()
         

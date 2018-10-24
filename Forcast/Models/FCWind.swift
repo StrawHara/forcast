@@ -14,7 +14,7 @@ final class FCWind: Object, Decodable {
   
   @objc dynamic var identifier: String = ""
   
-  @objc dynamic var speed: Int = 0
+  @objc dynamic var speed: Double = 0
   @objc dynamic var deg: Int = 0
   
   override static func primaryKey() -> String? {
@@ -26,7 +26,7 @@ final class FCWind: Object, Decodable {
     case deg = "deg"
   }
   
-  convenience init(identifier: String, speed: Int, deg: Int) {
+  convenience init(identifier: String, speed: Double, deg: Int) {
     self.init()
     self.identifier = identifier
     self.speed = speed
@@ -36,7 +36,7 @@ final class FCWind: Object, Decodable {
   convenience required init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: CodingKeys.self)
     let identifier =  UUID().uuidString
-    let speed = try container.decode(Int.self, forKey: .speed)
+    let speed = try container.decode(Double.self, forKey: .speed)
     let deg = try container.decode(Int.self, forKey: .deg)
     
     self.init(identifier: identifier, speed: speed, deg: deg)
