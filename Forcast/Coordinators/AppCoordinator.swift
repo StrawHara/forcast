@@ -22,20 +22,22 @@ class AppCoordinator: NSObject {
   private var citiesNav: UINavigationController
   private var addCityNav: UINavigationController
   
-  // TODO: vv
-//  private var webServices = WebServices()
+  private var webServices = WebServices()
   
   init(window: UIWindow?) {
     self.window = window
     
     // MARK: Navigation Controllers
     let citiesVC = CitiesViewController.instantiate()
+//    citiesVC.setup(webServices: self.webServices)
     self.citiesNav = UINavigationController(rootViewController: citiesVC)
     self.citiesNav.tabBarItem = UITabBarItem(title: L10n.cities,
                                              image: UIImage(asset: Asset.Tabbar.city),
                                              tag: TabbarItem.cities.rawValue)
 
-    self.addCityNav = UINavigationController(rootViewController: AddCityViewController.instantiate())
+    let addCityVC = AddCityViewController.instantiate()
+    addCityVC.setup(webServices: self.webServices)
+    self.addCityNav = UINavigationController(rootViewController: addCityVC)
     self.addCityNav.tabBarItem = UITabBarItem(title: L10n.addCity,
                                               image: UIImage(asset: Asset.Tabbar.plus),
                                               tag: TabbarItem.addCity.rawValue)

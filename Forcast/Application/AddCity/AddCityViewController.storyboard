@@ -12,17 +12,41 @@
         <!--Add City View Controller-->
         <scene sceneID="aGd-fW-aWI">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="09B-Rh-8o1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="tXr-Aa-YpQ" customClass="AddCityViewController" customModule="Forcast" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T0E-uI-KGf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Dr5-pe-byk">
+                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cB1-HL-Y1e">
+                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="YcF-Jq-l6X" firstAttribute="trailing" secondItem="cB1-HL-Y1e" secondAttribute="trailing" id="DeB-NI-ALs"/>
+                            <constraint firstItem="YcF-Jq-l6X" firstAttribute="trailing" secondItem="Dr5-pe-byk" secondAttribute="trailing" id="Ffr-dy-Yd1"/>
+                            <constraint firstItem="cB1-HL-Y1e" firstAttribute="top" secondItem="Dr5-pe-byk" secondAttribute="bottom" id="OSt-hW-hVQ"/>
+                            <constraint firstItem="Dr5-pe-byk" firstAttribute="leading" secondItem="T0E-uI-KGf" secondAttribute="leading" id="RCj-D3-6nt"/>
+                            <constraint firstItem="cB1-HL-Y1e" firstAttribute="leading" secondItem="YcF-Jq-l6X" secondAttribute="leading" id="TCC-RP-g72"/>
+                            <constraint firstItem="YcF-Jq-l6X" firstAttribute="bottom" secondItem="cB1-HL-Y1e" secondAttribute="bottom" id="Uzu-oh-npY"/>
+                            <constraint firstItem="Dr5-pe-byk" firstAttribute="top" secondItem="YcF-Jq-l6X" secondAttribute="top" id="spt-Yl-fjK"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="YcF-Jq-l6X"/>
                     </view>
+                    <connections>
+                        <outlet property="searchBar" destination="Dr5-pe-byk" id="V4Y-3B-7nU"/>
+                        <outlet property="searchBarTopConstraint" destination="spt-Yl-fjK" id="hJa-lJ-xL5"/>
+                        <outlet property="tableView" destination="cB1-HL-Y1e" id="QA1-ZG-1tI"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="09B-Rh-8o1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="72" y="-87"/>
+            <point key="canvasLocation" x="71.200000000000003" y="-87.706146926536732"/>
         </scene>
     </scenes>
 </document>
