@@ -61,7 +61,9 @@ final class CitiesViewController: UIViewController, StoryboardBased {
     }
     
     self.dataSource = []
-    self.dataSource.append(contentsOf: Array(cities))
+    self.dataSource.append(contentsOf: Array(cities.filter({
+      UserDefaults.standard.favoriteCities.contains($0.identifier)
+    })))
     self.collectionView.reloadData()
   }
   
