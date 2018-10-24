@@ -52,6 +52,7 @@
 		D390BB89217F7C0E00492670 /* FooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D390BB88217F7C0E00492670 /* FooterView.xib */; };
 		D390BB8B217F7C3D00492670 /* CityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D390BB8A217F7C3D00492670 /* CityCell.swift */; };
 		D390BB8D217F7C4400492670 /* CityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D390BB8C217F7C4400492670 /* CityCell.xib */; };
+		D390BB8F21809A0300492670 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D390BB8E21809A0300492670 /* UserDefaults.swift */; };
 		EC862C1C505DCF6246D46DB0 /* Pods_ForcastTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0714CE4871FF4F21AE8C5101 /* Pods_ForcastTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -127,6 +128,7 @@
 		D390BB88217F7C0E00492670 /* FooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FooterView.xib; sourceTree = "<group>"; };
 		D390BB8A217F7C3D00492670 /* CityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCell.swift; sourceTree = "<group>"; };
 		D390BB8C217F7C4400492670 /* CityCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityCell.xib; sourceTree = "<group>"; };
+		D390BB8E21809A0300492670 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		DCC0A191C87C94C707CE9575 /* Pods-ForcastTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForcastTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ForcastTests/Pods-ForcastTests.release.xcconfig"; sourceTree = "<group>"; };
 		F452DD1A0A12571EF5ECE651 /* Pods_ForcastUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ForcastUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA714ABD1B952CD701F38CE5 /* Pods_Forcast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Forcast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -377,6 +379,7 @@
 			isa = PBXGroup;
 			children = (
 				D35C682B217F7320009CFDF8 /* Realm.swift */,
+				D390BB8E21809A0300492670 /* UserDefaults.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -728,6 +731,7 @@
 				D35C681A217F518D009CFDF8 /* FCMain.swift in Sources */,
 				D35C6814217F0FD1009CFDF8 /* FCCity.swift in Sources */,
 				D390BB87217F7BFC00492670 /* FooterView.swift in Sources */,
+				D390BB8F21809A0300492670 /* UserDefaults.swift in Sources */,
 				D35C67EC217E25E7009CFDF8 /* Forcast.xcdatamodeld in Sources */,
 				D35C6824217F6E3C009CFDF8 /* Environment.swift in Sources */,
 				D390BB8B217F7C3D00492670 /* CityCell.swift in Sources */,

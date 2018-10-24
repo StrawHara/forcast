@@ -178,9 +178,11 @@ extension AddCityViewController: UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+    let city = dataSource[indexPath.row]
     
     let cityCell = self.tableView.dequeueReusableCell(for: indexPath) as CityCell
-    cityCell.setup(name: dataSource[indexPath.row].name)
+    cityCell.setup(cityID: city.identifier, name: city.name)
     return cityCell
   }
   

@@ -67,6 +67,8 @@ internal enum Asset {
     internal static let thunderstormDay = ImageAsset(name: "thunderstorm_day")
     internal static let thunderstormNight = ImageAsset(name: "thunderstorm_night")
   }
+  internal static let starEmpty = ImageAsset(name: "starEmpty")
+  internal static let starPlain = ImageAsset(name: "starPlain")
 
   // swiftlint:disable trailing_comma
   internal static let allColors: [ColorAsset] = [
@@ -91,6 +93,8 @@ internal enum Asset {
     WeatherIcon.sun,
     WeatherIcon.thunderstormDay,
     WeatherIcon.thunderstormNight,
+    starEmpty,
+    starPlain,
   ]
   // swiftlint:enable trailing_comma
   @available(*, deprecated, renamed: "allImages")

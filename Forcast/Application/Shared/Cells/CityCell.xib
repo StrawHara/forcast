@@ -10,30 +10,54 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="brm-eb-5Ru" customClass="CityCell" customModule="Forcast" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="66" id="brm-eb-5Ru" customClass="CityCell" customModule="Forcast" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="66"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="brm-eb-5Ru" id="4Jy-8r-DWQ">
-                <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="341" height="65.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLh-0o-EsC">
-                        <rect key="frame" x="15" y="15" width="311" height="13.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLh-0o-EsC">
+                        <rect key="frame" x="15" y="15" width="271" height="35.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starPlain" translatesAutoresizingMaskIntoConstraints="NO" id="Ocb-Pp-HVC">
+                        <rect key="frame" x="306" y="23" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="Pkb-ne-Sje"/>
+                            <constraint firstAttribute="width" secondItem="Ocb-Pp-HVC" secondAttribute="height" multiplier="1:1" id="xCo-ZH-tsg"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eoH-3a-eZ7">
+                        <rect key="frame" x="306" y="23" width="20" height="20"/>
+                        <connections>
+                            <action selector="favoriteButtonTouchedUp:" destination="brm-eb-5Ru" eventType="touchUpInside" id="8h4-91-TZH"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="hLh-0o-EsC" secondAttribute="trailing" constant="15" id="9uD-c0-oSw"/>
+                    <constraint firstItem="eoH-3a-eZ7" firstAttribute="width" secondItem="Ocb-Pp-HVC" secondAttribute="width" id="70V-jf-dKz"/>
+                    <constraint firstItem="eoH-3a-eZ7" firstAttribute="height" secondItem="Ocb-Pp-HVC" secondAttribute="height" id="9FT-FQ-jxS"/>
+                    <constraint firstItem="eoH-3a-eZ7" firstAttribute="top" secondItem="Ocb-Pp-HVC" secondAttribute="top" id="9Xq-J4-D3s"/>
                     <constraint firstAttribute="bottom" secondItem="hLh-0o-EsC" secondAttribute="bottom" constant="15" id="D6T-Gc-pot"/>
                     <constraint firstItem="hLh-0o-EsC" firstAttribute="leading" secondItem="4Jy-8r-DWQ" secondAttribute="leading" constant="15" id="bvV-do-c4e"/>
+                    <constraint firstItem="Ocb-Pp-HVC" firstAttribute="centerY" secondItem="hLh-0o-EsC" secondAttribute="centerY" id="exK-fJ-Auk"/>
+                    <constraint firstAttribute="trailing" secondItem="Ocb-Pp-HVC" secondAttribute="trailing" constant="15" id="g31-cC-Mb2"/>
+                    <constraint firstItem="Ocb-Pp-HVC" firstAttribute="leading" secondItem="hLh-0o-EsC" secondAttribute="trailing" constant="20" id="gHW-sC-UQl"/>
                     <constraint firstItem="hLh-0o-EsC" firstAttribute="top" secondItem="4Jy-8r-DWQ" secondAttribute="top" constant="15" id="iMN-dL-Ljy"/>
+                    <constraint firstItem="eoH-3a-eZ7" firstAttribute="leading" secondItem="Ocb-Pp-HVC" secondAttribute="leading" id="vG1-ow-gpv"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="favoriteImage" destination="Ocb-Pp-HVC" id="HpS-WE-ZmA"/>
                 <outlet property="nameLabel" destination="hLh-0o-EsC" id="8bf-kO-pzC"/>
             </connections>
+            <point key="canvasLocation" x="138.40000000000001" y="155.62218890554723"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="starPlain" width="20" height="19"/>
+    </resources>
 </document>
