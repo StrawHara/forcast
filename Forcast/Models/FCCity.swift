@@ -16,9 +16,9 @@ final class FCCity: Object, Decodable {
   @objc dynamic var name: String = ""
   @objc dynamic var coord: FCCoord?
   
-  @objc dynamic var weather: FCWeather?
+  var weather: FCWeather?
   
-  @objc dynamic var forecast: [FCWeather]?
+  var forecast = List<FCWeather>()
   
   override static func primaryKey() -> String? {
     return "identifier"
@@ -39,11 +39,11 @@ final class FCCity: Object, Decodable {
   
   convenience required init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: CodingKeys.self)
-    let identifier =  try container.decode(String.self, forKey: .identifier)
+    let identifier =  try container.decode(Int.self, forKey: .identifier)
     let name = try container.decode(String.self, forKey: .name)
     let coord = try container.decode(FCCoord.self, forKey: .coord)
     
-    self.init(identifier: identifier, name: name, coord: coord)
+    self.init(identifier: String(identifier), name: name, coord: coord)
   }
   
   required init() {
