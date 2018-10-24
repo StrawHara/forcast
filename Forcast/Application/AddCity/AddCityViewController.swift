@@ -11,6 +11,8 @@ import RxSwift
 import RxCocoa
 import RealmSwift
 
+// FIXME: Problem here on first launch
+
 final class AddCityViewController: UIViewController, StoryboardBased {
   
   // MARK: IBOutlets
