@@ -18,16 +18,7 @@ final class AddCityViewController: UIViewController, StoryboardBased {
   @IBOutlet weak var searchBar: UISearchBar!
   
   @IBOutlet weak var searchBarTopConstraint: NSLayoutConstraint!
-  
-  static let priceFormatter: NumberFormatter = {
-    let formatter = NumberFormatter()
     
-    formatter.formatterBehavior = .behavior10_4
-    formatter.numberStyle = .currency
-    
-    return formatter
-  }()
-  
   // MARK: Properties
   private var citiesNotificationToken: NotificationToken?
   private var citiesResults: Results<FCCity>?
@@ -48,7 +39,7 @@ final class AddCityViewController: UIViewController, StoryboardBased {
   private lazy var refreshControl: UIRefreshControl = {
     let refreshControl = UIRefreshControl()
     refreshControl.addTarget(self, action: #selector(self.handleRefresh(_:)),
-                             for: UIControlEvents.valueChanged)
+                             for: UIControl.Event.valueChanged)
     refreshControl.tintColor = UIColor(named: .red)
     // TODO: Poeditor vv
     refreshControl.attributedTitle = NSAttributedString(string: "Refresh", attributes: nil)
@@ -58,6 +49,8 @@ final class AddCityViewController: UIViewController, StoryboardBased {
   // MARK: Init
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    self.title = L10n.addCity
     
     self.setupSearchBar()
     self.setupTableView()

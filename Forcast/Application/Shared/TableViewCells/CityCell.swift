@@ -54,6 +54,8 @@ final class CityCell: UITableViewCell, NibReusable {
     
     if UserDefaults.standard.favoriteCities.contains(cityID) {
       UserDefaults.standard.favoriteCities = UserDefaults.standard.favoriteCities.filter({$0 != cityID})
+      
+      // TODO: Remove city from Realm as well
     } else {
       guard UserDefaults.standard.favoriteCities.count < 20 else {
         // TODO: Build delegate AddCityVC side to show an alert
