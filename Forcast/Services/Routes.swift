@@ -14,7 +14,7 @@ public enum Route {
   
   public var path: String {
     switch self {
-    case .city(let cityID): return "forecast?q=\(cityID)&APPID=\(Environment.accessToken)"
+    case .city(let cityID): return "forecast?id=\(cityID)&APPID=\(Environment.accessToken)"
     case .find(let lat, let lon): return "find?lat=\(lat)&lon=\(lon)&cnt=50&APPID=\(Environment.accessToken)"
     }
   }

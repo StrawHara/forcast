@@ -67,6 +67,8 @@ final class CityViewController: UIViewController, StoryboardBased {
   func setup(webServices: WebServices?, cityID: String) {
     self.webServices = webServices
     self.cityID = cityID
+    
+    log.warning(cityID)
   }
   
   // MARK: Privates
@@ -154,7 +156,8 @@ extension CityViewController: UITableViewDataSource {
       cell = rainCell
     case .forecast:
       let forecastCell = self.tableView.dequeueReusableCell(for: indexPath) as CityForecastCell
-      forecastCell.setup()
+      forecastCell.setup(cityID: city.identifier)
+      log.error(city.identifier)
       cell = forecastCell
     }
     

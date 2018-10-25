@@ -15,7 +15,7 @@ final class FCMain: Object, Decodable {
   @objc dynamic var identifier: String = ""
   
   @objc dynamic var temp: Double = 0.0
-  @objc dynamic var pressure: Int = 0
+  @objc dynamic var pressure: Double = 0.0
   @objc dynamic var humidity: Int = 0
   @objc dynamic var tempMin: Double = 0.0
   @objc dynamic var tempMax: Double = 0.0
@@ -32,7 +32,7 @@ final class FCMain: Object, Decodable {
     case tempMax = "temp_max"
   }
   
-  convenience init(identifier: String, temp: Double, pressure: Int,
+  convenience init(identifier: String, temp: Double, pressure: Double,
                    humidity: Int, tempMin: Double, tempMax: Double) {
     self.init()
     self.identifier = identifier
@@ -47,7 +47,7 @@ final class FCMain: Object, Decodable {
     let container = try decoder.container(keyedBy: CodingKeys.self)
     let identifier =  UUID().uuidString
     let temp = try container.decode(Double.self, forKey: .temp)
-    let pressure = try container.decode(Int.self, forKey: .pressure)
+    let pressure = try container.decode(Double.self, forKey: .pressure)
     let humidity = try container.decode(Int.self, forKey: .humidity)
     let tempMin = try container.decode(Double.self, forKey: .tempMin)
     let tempMax = try container.decode(Double.self, forKey: .tempMax)

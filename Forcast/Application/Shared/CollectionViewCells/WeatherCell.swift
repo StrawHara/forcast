@@ -30,6 +30,7 @@ final class WeatherCell: UICollectionViewCell, NibReusable {
   
   // MARK: Properties
   private var city: FCCity?
+  private var weather: FCWeather?
   
   // MARK: Init
   override func awakeFromNib() {
@@ -39,31 +40,32 @@ final class WeatherCell: UICollectionViewCell, NibReusable {
   }
   
   // MARK: Public
-  func setup(city: FCCity) {
+  func setup(city: FCCity?, weather: FCWeather? = nil) {
     self.city = city
+    self.weather = city?.weather
+    
+    if weather != nil {
+      self.weather = weather
+    }
     
     self.setupCell()
   }
   
   func setupCell() {
-    guard let city = self.city else {
-      return
-    }
-    
-    self.cityNameLabel.text = city.name
-    self.dateTimeLabel.text = Date.formattedDate(for: city.weather?.dateTime)
-    self.analysisDescriptionLabel.text = city.weather?.analysis?
+    self.cityNameLabel.text = city?.name
+    self.dateTimeLabel.text = Date.formattedDate(for: self.weather?.dateTime)
+    self.analysisDescriptionLabel.text = self.weather?.analysis?
       .analysisDescription.capitalizingFirstLetter()
     
     self.weatherBubbleRight.setup(weatherInfoType: .temp,
-                                  contentText: "\(city.weather?.main?.temp ?? 0)")
+                                  contentText: "\(self.weather?.main?.temp ?? 0)")
     self.weatherBubbleMiddle.setup(weatherInfoType: .wind,
-                                  contentText: "\(city.weather?.wind?.speed ?? 0)")
+                                  contentText: "\(self.weather?.wind?.speed ?? 0)")
     self.weatherBubbleLeft.setup(weatherInfoType: .rain,
-                                  contentText: "\(city.weather?.rain?.mlPer3H ?? 0)")
+                                  contentText: "\(self.weather?.rain?.mlPer3H ?? 0)")
     
     self.weatherAnalysisImage.image = WeatherManager
-      .weatherImage(for: city.weather?.analysis?.main, at: city.weather?.dateTime)
+      .weatherImage(for: self.weather?.analysis?.main, at: self.weather?.dateTime)
   }
 
 }

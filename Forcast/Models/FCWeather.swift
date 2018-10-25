@@ -51,15 +51,15 @@ final class FCWeather: Object, Decodable {
     let container = try decoder.container(keyedBy: CodingKeys.self)
     let identifier =  UUID().uuidString
     let dateTime = try container.decode(Int.self, forKey: .dateTime)
-    let main = try container.decode(FCMain?.self, forKey: .main)
-    let wind = try container.decode(FCWind?.self, forKey: .wind)
-    let rain = try container.decode(FCRain?.self, forKey: .rain)
-    let clouds = try container.decode(FCClouds?.self, forKey: .clouds)
-    let analysis = try container.decode([FCAnalysis].self, forKey: .analysis)
+    let main = try? container.decode(FCMain.self, forKey: .main)
+    let wind = try? container.decode(FCWind.self, forKey: .wind)
+    let rain = try? container.decode(FCRain.self, forKey: .rain)
+    let clouds = try? container.decode(FCClouds.self, forKey: .clouds)
+    let analysis = try? container.decode([FCAnalysis].self, forKey: .analysis)
 
     self.init(identifier: identifier, dateTime: dateTime, main: main,
               wind: wind, rain: rain, clouds: clouds,
-              analysis: analysis.first)
+              analysis: analysis?.first)
   }
   
   required init() {

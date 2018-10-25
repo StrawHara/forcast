@@ -13,10 +13,35 @@
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="kgE-WX-XJe" customClass="CityForecastCell" customModule="Forcast" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kgE-WX-XJe" id="4vM-J5-Y79">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kgE-WX-XJe" id="4vM-J5-Y79">
                 <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="YrO-vc-PWu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="380.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="380" id="PXt-SW-FFA"/>
+                        </constraints>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jyv-LG-Du0">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                    </collectionView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="YrO-vc-PWu" firstAttribute="top" secondItem="4vM-J5-Y79" secondAttribute="top" id="Be4-cc-kgK"/>
+                    <constraint firstAttribute="trailing" secondItem="YrO-vc-PWu" secondAttribute="trailing" id="Nij-Yd-d0c"/>
+                    <constraint firstAttribute="bottom" secondItem="YrO-vc-PWu" secondAttribute="bottom" id="jFK-Ie-PPc"/>
+                    <constraint firstItem="YrO-vc-PWu" firstAttribute="leading" secondItem="4vM-J5-Y79" secondAttribute="leading" id="jZV-SC-TPI"/>
+                </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="collectionView" destination="YrO-vc-PWu" id="DFD-Rg-Dxf"/>
+            </connections>
+            <point key="canvasLocation" x="345" y="56"/>
         </tableViewCell>
     </objects>
 </document>
