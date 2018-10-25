@@ -26,9 +26,9 @@ final class CitiesViewController: UIViewController, StoryboardBased {
     let refreshControl = UIRefreshControl()
     refreshControl.addTarget(self, action: #selector(self.handleRefresh(_:)),
                              for: UIControl.Event.valueChanged)
-    refreshControl.tintColor = UIColor(named: .red)
-    // TODO: Poeditor vv
-    refreshControl.attributedTitle = NSAttributedString(string: "Refresh", attributes: nil)
+    refreshControl.tintColor = UIColor(named: .blue)
+    refreshControl.attributedTitle = NSAttributedString(string: L10n.refresh,
+                                                        attributes: [.foregroundColor: UIColor(named: .blue)])
     return refreshControl
   }()
   
