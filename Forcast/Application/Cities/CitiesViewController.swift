@@ -20,6 +20,7 @@ final class CitiesViewController: UIViewController, StoryboardBased {
   private var citiesResults: Results<FCCity>?
   private var dataSource: [FCCity] = []
   
+  private weak var delegate: AppCoordinatorDelegate?
   private var webServices: WebServices?
   
   private lazy var refreshControl: UIRefreshControl = {
@@ -49,8 +50,9 @@ final class CitiesViewController: UIViewController, StoryboardBased {
   }
   
   // MARK: Public
-  func setup(webServices: WebServices) {
+  func setup(webServices: WebServices, delegate: AppCoordinatorDelegate) {
     self.webServices = webServices
+    self.delegate = delegate
   }
   
   // MARK: Private
@@ -142,10 +144,7 @@ extension CitiesViewController: UICollectionViewDelegateFlowLayout {
 extension CitiesViewController: UICollectionViewDelegate {
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    // TODO: Do that in AppCoordinator
-    let cityVC = CityViewController.instantiate()
-    cityVC.setup(webServices: self.webServices, cityID: self.dataSource[indexPath.row].identifier)
-    self.navigationController?.pushViewController(cityVC, animated: true)
+    self.delegate?.showDetails(cityID: self.dataSource[indexPath.row].identifier)
   }
   
 }

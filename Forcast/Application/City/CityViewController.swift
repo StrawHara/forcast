@@ -13,6 +13,11 @@ final class CityViewController: UIViewController, StoryboardBased {
   
   // MARK: IBOutlets
   @IBOutlet weak var tableView: UITableView!
+  @IBOutlet weak var emptyLabel: UILabel! {
+    didSet {
+      self.emptyLabel.text = "Please select a city first"
+    }
+  }
   
   // MARK: Properties
   private var citiesNotificationToken: NotificationToken?
@@ -52,7 +57,11 @@ final class CityViewController: UIViewController, StoryboardBased {
   // MARK: Init
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+
+    let done = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.dismissVC))
+    done.tintColor = UIColor(named: .red)
+    self.navigationItem.rightBarButtonItem = done
+
     self.setupTableView()
     self.setupRealm()
   }
@@ -64,11 +73,9 @@ final class CityViewController: UIViewController, StoryboardBased {
   }
   
   // MARK: Public
-  func setup(webServices: WebServices?, cityID: String) {
+  func setup(webServices: WebServices?, cityID: String?) {
     self.webServices = webServices
     self.cityID = cityID
-    
-    log.warning(cityID)
   }
   
   // MARK: Privates
@@ -115,8 +122,14 @@ final class CityViewController: UIViewController, StoryboardBased {
   // MARK: @objc
   @objc
   func handleRefresh(_ refreshControl: UIRefreshControl) {
-    self.webServices?.findCity(lon: 2.3522, lat: 48.8566)
+    guard let cityID = self.cityID else { return }
+    self.webServices?.fetchCity(cityID: cityID)
     self.refreshControl.endRefreshing()
+  }
+  
+  @objc
+  func dismissVC() {
+    self.navigationController?.dismiss(animated: true, completion: nil)
   }
   
 }

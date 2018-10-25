@@ -79,7 +79,6 @@ final class CityForecastCell: UITableViewCell, NibReusable {
 extension CityForecastCell: UICollectionViewDataSource {
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//    log.info(self.dataSource.count)
     return self.dataSource.count
   }
   

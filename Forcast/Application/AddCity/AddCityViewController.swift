@@ -11,8 +11,6 @@ import RxSwift
 import RxCocoa
 import RealmSwift
 
-// FIXME: Problem here on first launch
-
 final class AddCityViewController: UIViewController, StoryboardBased {
   
   // MARK: IBOutlets
@@ -26,6 +24,7 @@ final class AddCityViewController: UIViewController, StoryboardBased {
   private var citiesResults: Results<FCCity>?
   private var dataSource: [FCCity] = []
   
+  private weak var delegate: AppCoordinatorDelegate?
   private var webServices: WebServices?
   
   private var query: String? {
@@ -66,10 +65,11 @@ final class AddCityViewController: UIViewController, StoryboardBased {
   }
   
   // MARK: Public
-  func setup(webServices: WebServices) {
+  func setup(webServices: WebServices, delegate: AppCoordinatorDelegate) {
     self.webServices = webServices
+    self.delegate = delegate
   }
-  
+
   // MARK: Private
   private func setupSearchBar() {
     self.searchBarTopConstraint.constant = -self.searchBar.bounds.height
@@ -139,6 +139,8 @@ final class AddCityViewController: UIViewController, StoryboardBased {
   
   // MARK: @objc
   @objc func search() {
+    self.searchBar.tintColor = UIColor(named: .blue)
+    self.searchBar.barTintColor = UIColor(named: .blue)
     UIView.animate(withDuration: 0.6, animations: {
       if self.searchBarTopConstraint.constant == 0 {
         self.searchBar.resignFirstResponder()
@@ -184,11 +186,8 @@ extension AddCityViewController: UITableViewDataSource {
 
 extension AddCityViewController: UITableViewDelegate {
 
-  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    // TODO: Do that in AppCoordinator
-    let cityVC = CityViewController.instantiate()
-    cityVC.setup(webServices: self.webServices, cityID: self.dataSource[indexPath.row].identifier)
-    self.navigationController?.pushViewController(cityVC, animated: true)
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    self.delegate?.showDetails(cityID: self.dataSource[indexPath.row].identifier)
   }
   
 }

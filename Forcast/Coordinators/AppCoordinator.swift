@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+protocol AppCoordinatorDelegate:class {
+  func showDetails(cityID: String)
+}
+
 class AppCoordinator: NSObject {
   
   private enum TabbarItem: Int {
@@ -17,67 +21,80 @@ class AppCoordinator: NSObject {
   }
   
   private var window: UIWindow?
+  
+  private var splitViewController: UISplitViewController
   private var tabbarController: UITabBarController
   
   private var citiesNav: UINavigationController
-  private var addCityNav: UINavigationController
+  private var citiesVC: CitiesViewController
   
+  private var addCityNav: UINavigationController
+  private var addCityVC: AddCityViewController
+
   private var webServices = WebServices()
   
   init(window: UIWindow?) {
     self.window = window
     
     // MARK: Navigation Controllers
-    let citiesVC = CitiesViewController.instantiate()
-//    citiesVC.setup(webServices: self.webServices)
-    self.citiesNav = UINavigationController(rootViewController: citiesVC)
+    self.citiesVC = CitiesViewController.instantiate()
+    self.citiesNav = UINavigationController(rootViewController: self.citiesVC)
     self.citiesNav.tabBarItem = UITabBarItem(title: L10n.cities,
                                              image: UIImage(asset: Asset.Tabbar.city),
                                              tag: TabbarItem.cities.rawValue)
 
-    let addCityVC = AddCityViewController.instantiate()
-    addCityVC.setup(webServices: self.webServices)
-    self.addCityNav = UINavigationController(rootViewController: addCityVC)
+    self.addCityVC = AddCityViewController.instantiate()
+    self.addCityNav = UINavigationController(rootViewController: self.addCityVC)
     self.addCityNav.tabBarItem = UITabBarItem(title: L10n.addCity,
                                               image: UIImage(asset: Asset.Tabbar.plus),
                                               tag: TabbarItem.addCity.rawValue)
-
+    
+    let cityVC = CityViewController.instantiate()
+    cityVC.setup(webServices: self.webServices,
+                 cityID: UserDefaults.standard.favedCities.first)
+    let cityNav = UINavigationController(rootViewController: cityVC)
+    
     // MARK: Tabbar
     self.tabbarController = UITabBarController()
-    self.tabbarController.viewControllers = [self.citiesNav, self.addCityNav]
+    self.tabbarController.viewControllers = [citiesNav, addCityNav]
     self.tabbarController.tabBar.contentMode = .scaleAspectFill
     self.tabbarController.tabBar.clipsToBounds = false
     self.tabbarController.tabBar.tintColor = UIColor(named: .blue)
-
-    self.window?.rootViewController = self.tabbarController
+    
+    // MAR: SplitViewController
+    self.splitViewController = UISplitViewController()
+    self.splitViewController.viewControllers = [self.tabbarController, cityNav]
+    
+    self.window?.rootViewController = self.splitViewController
   }
   
   // MARK: Coordinator implementation
   func start() {
-    self.tabbarController.delegate = self
-
     self.webServices.fetchFavedCities()
 
-    // TODO: vv
-    // Check if favorites or paris as first one -> Mean default db or default nsuserdefault
-    // Favorites sotred in userDefault
-    // Store Paris if no one setted
-    
-    // Load app on list with only paris
-    // empty view -> redirect to add City
+    self.citiesVC.setup(webServices: self.webServices, delegate: self)
+    self.addCityVC.setup(webServices: self.webServices, delegate: self)
+
+    if UserDefaults.standard.favedCities.isEmpty {
+      UserDefaults.standard.favedCities = ["2988507"]
+    }
     
     self.launch()
   }
   
   fileprivate func launch() {
-    
   }
   
 }
 
-extension AppCoordinator: UITabBarControllerDelegate {
+extension AppCoordinator: AppCoordinatorDelegate {
   
-  func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+  func showDetails(cityID: String) {
+    let cityVC = CityViewController.instantiate()
+    cityVC.setup(webServices: self.webServices,
+                 cityID: cityID)
+    let cityNav = UINavigationController(rootViewController: cityVC)
+    self.splitViewController.showDetailViewController(cityNav, sender: self)
   }
   
 }
