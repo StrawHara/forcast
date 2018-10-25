@@ -2,6 +2,8 @@
 
 ## Used Patterns 
 
+* RxSwift
+  * [Reactivex.io](http://reactivex.io)
 * Realm
   * [Official documentation](https://realm.io/docs/swift/latest/)
 * Coordinator Pattern
@@ -9,6 +11,8 @@
   * [Article](http://khanlou.com/2015/10/coordinators-redux/)
 * Reusable
   * [Library documentation](https://github.com/AliSoftware/Reusable)
+* Poesie - Localizable strings
+  * [Library documentation](https://github.com/NijiDigital/poesie)
 
 ## Third party tools
 
