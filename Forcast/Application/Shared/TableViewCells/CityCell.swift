@@ -8,6 +8,7 @@
 
 import UIKit
 import Reusable
+import RealmSwift
 
 final class CityCell: UITableViewCell, NibReusable {
   
@@ -26,7 +27,7 @@ final class CityCell: UITableViewCell, NibReusable {
   // MARK: Properties
   private var cityID: String?
   private var name: String?
-
+  
   // MARK: Init
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -43,19 +44,31 @@ final class CityCell: UITableViewCell, NibReusable {
     guard let cityID = self.cityID else {
       return
     }
-
+    
     self.nameLabel.text = self.name
     self.favoriteImage.image = UserDefaults.standard.favedCities.contains(cityID) ?
       UIImage(asset: Asset.starPlain) : UIImage(asset: Asset.starEmpty)
   }
-
+  
   @IBAction func favoriteButtonTouchedUp(_ sender: Any) {
     guard let cityID = self.cityID else { return }
     
     if UserDefaults.standard.favedCities.contains(cityID) {
       UserDefaults.standard.favedCities = UserDefaults.standard.favedCities.filter({$0 != cityID})
       
-      // TODO: Remove city from Realm as well
+      let realm = Realm.safeInstance()
+      let predicate = NSPredicate(format: "%K == %@",
+                                  "identifier", cityID)
+      if let city = realm.objects(FCCity.self).filter(predicate).first {
+        do {
+          try realm.write {
+            realm.delete(city)
+          }
+        } catch {
+          log.error("unable to delete city from realm")
+        }
+      }
+      
     } else {
       guard UserDefaults.standard.favedCities.count < 20 else {
         // TODO: Build delegate AddCityVC side to show an alert
