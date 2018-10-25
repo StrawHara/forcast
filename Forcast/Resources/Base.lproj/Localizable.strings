@@ -8,3 +8,14 @@
 "add_city" = "Add a city";
 "cities" = "Cities";
 "city" = "City";
+"east" = "the east";
+"north" = "the north";
+
+////////////////////////////////////////////////////////////////////////////////
+// MARK: Not
+"not_set" = "not set";
+"refresh" = "Refresh";
+"south" = "the south";
+"temp" = "%@ - Max: %@ - Min:%@ - Humidity: %@";
+"west" = "the west";
+"wind" = "%@, coming from %@";

@@ -8,3 +8,14 @@
 "add_city" = "Ajouter une ville";
 "cities" = "Villes";
 "city" = "Ville";
+"east" = "de l'est";
+"north" = "du nord";
+
+////////////////////////////////////////////////////////////////////////////////
+// MARK: Not
+"not_set" = "non-défini";
+"refresh" = "Mise à jour";
+"south" = "du sud";
+"temp" = "%@ - Max: %@ - Min:%@ - Humidité: %@";
+"west" = "de l'ouest";
+"wind" = "%@, venant %@";
