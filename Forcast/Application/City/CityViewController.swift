@@ -170,7 +170,6 @@ extension CityViewController: UITableViewDataSource {
     case .forecast:
       let forecastCell = self.tableView.dequeueReusableCell(for: indexPath) as CityForecastCell
       forecastCell.setup(cityID: city.identifier)
-      log.error(city.identifier)
       cell = forecastCell
     }
     

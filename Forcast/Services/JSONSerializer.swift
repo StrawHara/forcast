@@ -74,7 +74,7 @@ final class JSONSerializer {
 
       let predicate = NSPredicate(format: "%K == %@", "identifier", cityID)
       let city = realm.objects(FCCity.self).filter(predicate).first
-            
+      
       try realm.write {
         realm.add(forecast, update: true)
         city?.forecast.append(objectsIn: forecast)

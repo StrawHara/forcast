@@ -34,7 +34,6 @@ final class CityForecastCell: UITableViewCell, NibReusable {
   
   // MARK: Public
   func setup(cityID: String) {
-    log.verbose(cityID)
     self.cityID = cityID
     self.setupRealm()
   }
@@ -88,7 +87,6 @@ extension CityForecastCell: UICollectionViewDataSource {
     
     let weatherCell = self.collectionView.dequeueReusableCell(for: indexPath) as WeatherCell
     weatherCell.setup(city: nil, weather: weather)
-    log.warning(weather)
     return weatherCell
   }
   
