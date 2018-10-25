@@ -51,8 +51,9 @@ final class WeatherCell: UICollectionViewCell, NibReusable {
     }
     
     self.cityNameLabel.text = city.name
-    self.dateTimeLabel.text = String(city.weather?.dateTime ?? 0)
-    self.analysisDescriptionLabel.text = city.weather?.analysis?.analysisDescription
+    self.dateTimeLabel.text = Date.formattedDate(from: city.weather?.dateTime)
+    self.analysisDescriptionLabel.text = city.weather?.analysis?
+      .analysisDescription.capitalizingFirstLetter()
     
     self.weatherBubbleRight.setup(icon: UIImage(asset: Asset.ElementsIcon.thermometer),
                                   contentText: "\(city.weather?.main?.temp ?? 0)")
@@ -64,17 +65,24 @@ final class WeatherCell: UICollectionViewCell, NibReusable {
                                  contentText: "\(city.weather?.rain?.mlPer3H ?? 0)")
     
     guard let analysis = city.weather?.analysis?.main else { return }
-    // TOOD: Add night
     switch analysis {
     case "Clouds":
-      self.weatherAnalysisImage.image = UIImage(asset: Asset.WeatherIcon.fewCloudsDay)
+      self.weatherAnalysisImage.image = Date.isNight() ?
+        UIImage(asset: Asset.WeatherIcon.fewCloudsNight) :
+        UIImage(asset: Asset.WeatherIcon.fewCloudsDay)
     case "Clear":
-      self.weatherAnalysisImage.image = UIImage(asset: Asset.WeatherIcon.clearSkyDay)
+      self.weatherAnalysisImage.image = Date.isNight() ?
+        UIImage(asset: Asset.WeatherIcon.clearSkyNight) :
+        UIImage(asset: Asset.WeatherIcon.clearSkyDay)
     case "Rain":
-      self.weatherAnalysisImage.image = UIImage(asset: Asset.WeatherIcon.rainDay)
+      self.weatherAnalysisImage.image = Date.isNight() ?
+        UIImage(asset: Asset.WeatherIcon.rainNight) :
+        UIImage(asset: Asset.WeatherIcon.rainDay)
     default:
-      // TODO: vv
-      self.weatherAnalysisImage.image = UIImage(asset: Asset.WeatherIcon.snowDay)
+      // TODO: vv got exhaustive analysis responses
+      self.weatherAnalysisImage.image =  Date.isNight() ?
+        UIImage(asset: Asset.WeatherIcon.snowNight) :
+        UIImage(asset: Asset.WeatherIcon.snowDay)
     }
   }
 
