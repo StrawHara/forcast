@@ -56,9 +56,6 @@
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qdD-aw-Mcv" customClass="WeatherBubbleInfoView" customModule="Forcast" customModuleProvider="target">
                                         <rect key="frame" x="108.5" y="0.0" width="94" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="text" value="plop"/>
-                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WK2-TC-dIB" customClass="WeatherBubbleInfoView" customModule="Forcast" customModuleProvider="target">
                                         <rect key="frame" x="217.5" y="0.0" width="93.5" height="40"/>
@@ -89,7 +86,7 @@
                             <constraint firstItem="o4A-FM-NPM" firstAttribute="top" secondItem="nqe-rt-CZR" secondAttribute="bottom" constant="20" id="SO6-65-W6S"/>
                             <constraint firstItem="9In-Mp-xTU" firstAttribute="leading" secondItem="sbv-xM-QoF" secondAttribute="leading" constant="10" id="X8L-Gl-rjL"/>
                             <constraint firstItem="9In-Mp-xTU" firstAttribute="top" secondItem="sbv-xM-QoF" secondAttribute="top" constant="10" id="ZkM-Kl-cdj"/>
-                            <constraint firstItem="5OA-9v-lS6" firstAttribute="top" relation="greaterThanOrEqual" secondItem="o4A-FM-NPM" secondAttribute="bottom" constant="40" id="aMC-Gs-PC7"/>
+                            <constraint firstItem="5OA-9v-lS6" firstAttribute="top" relation="greaterThanOrEqual" secondItem="o4A-FM-NPM" secondAttribute="bottom" constant="20" id="aMC-Gs-PC7"/>
                             <constraint firstItem="NsR-eF-ZmH" firstAttribute="leading" secondItem="sbv-xM-QoF" secondAttribute="leading" constant="15" id="em1-8d-Y2b"/>
                             <constraint firstItem="nqe-rt-CZR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9In-Mp-xTU" secondAttribute="trailing" constant="20" id="k9Y-fy-et9"/>
                             <constraint firstAttribute="trailing" secondItem="NsR-eF-ZmH" secondAttribute="trailing" constant="15" id="zf9-8f-k5s"/>
