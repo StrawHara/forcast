@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-protocol AppCoordinatorDelegate:class {
+protocol AppCoordinatorDelegate: class {
   func showDetails(cityID: String)
 }
 
