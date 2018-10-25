@@ -169,7 +169,9 @@ extension CityViewController: UITableViewDataSource {
       cell = rainCell
     case .forecast:
       let forecastCell = self.tableView.dequeueReusableCell(for: indexPath) as CityForecastCell
-      forecastCell.setup(cityID: city.identifier)
+      let width = self.splitViewController?.viewControllers.first?.view.frame.width
+      forecastCell.setup(cityID: city.identifier,
+                         cellWidth: width)
       cell = forecastCell
     }
     

@@ -24,6 +24,7 @@ final class CityForecastCell: UITableViewCell, NibReusable {
   private var dataSource: [FCWeather] = []
   
   private var cityID: String?
+  private var cellWidth: CGFloat?
   
   // MARK: Init
   override func awakeFromNib() {
@@ -33,8 +34,9 @@ final class CityForecastCell: UITableViewCell, NibReusable {
   }
   
   // MARK: Public
-  func setup(cityID: String) {
+  func setup(cityID: String, cellWidth: CGFloat?) {
     self.cityID = cityID
+    self.cellWidth = cellWidth
     self.setupRealm()
   }
   
@@ -97,7 +99,7 @@ extension CityForecastCell: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView,
                       layout collectionViewLayout: UICollectionViewLayout,
                       sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CGSize(width: 400, height: 380)
+    return CGSize(width: self.cellWidth ?? 380, height: 380)
     
   }
   
