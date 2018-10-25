@@ -10,19 +10,20 @@ import Foundation
 
 extension Date {
   
-  static func formattedDate(from timestamp: Int?) -> String? {
+  static func formattedDate(for timestamp: Int?) -> String? {
     guard let timestamp = timestamp else { return nil }
     
     let date = Date(timeIntervalSince1970: Double(timestamp))
     let dateFormatter = DateFormatter()
-    dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
     dateFormatter.locale = NSLocale.current
     dateFormatter.dateFormat = "dd MMMM - HH:mm"
     return dateFormatter.string(from: date)
   }
   
-  static func isNight() -> Bool {
-    let date = Date()
+  static func isNight(at timestamp: Int?) -> Bool {
+    guard let timestamp = timestamp else { return false }
+    
+    let date = Date(timeIntervalSince1970: Double(timestamp))
     let calendar = Calendar.current
     
     let hour = calendar.component(.hour, from: date)

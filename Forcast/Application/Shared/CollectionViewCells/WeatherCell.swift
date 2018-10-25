@@ -51,7 +51,7 @@ final class WeatherCell: UICollectionViewCell, NibReusable {
     }
     
     self.cityNameLabel.text = city.name
-    self.dateTimeLabel.text = Date.formattedDate(from: city.weather?.dateTime)
+    self.dateTimeLabel.text = Date.formattedDate(for: city.weather?.dateTime)
     self.analysisDescriptionLabel.text = city.weather?.analysis?
       .analysisDescription.capitalizingFirstLetter()
     
@@ -65,22 +65,23 @@ final class WeatherCell: UICollectionViewCell, NibReusable {
                                  contentText: "\(city.weather?.rain?.mlPer3H ?? 0)")
     
     guard let analysis = city.weather?.analysis?.main else { return }
+    let isNight = Date.isNight(at: city.weather?.dateTime)
     switch analysis {
     case "Clouds":
-      self.weatherAnalysisImage.image = Date.isNight() ?
+      self.weatherAnalysisImage.image = isNight ?
         UIImage(asset: Asset.WeatherIcon.fewCloudsNight) :
         UIImage(asset: Asset.WeatherIcon.fewCloudsDay)
     case "Clear":
-      self.weatherAnalysisImage.image = Date.isNight() ?
+      self.weatherAnalysisImage.image = isNight ?
         UIImage(asset: Asset.WeatherIcon.clearSkyNight) :
         UIImage(asset: Asset.WeatherIcon.clearSkyDay)
     case "Rain":
-      self.weatherAnalysisImage.image = Date.isNight() ?
+      self.weatherAnalysisImage.image = isNight ?
         UIImage(asset: Asset.WeatherIcon.rainNight) :
         UIImage(asset: Asset.WeatherIcon.rainDay)
     default:
-      // TODO: vv got exhaustive analysis responses
-      self.weatherAnalysisImage.image =  Date.isNight() ?
+      // TODO: vv get exhaustive analysis responses
+      self.weatherAnalysisImage.image = isNight ?
         UIImage(asset: Asset.WeatherIcon.snowNight) :
         UIImage(asset: Asset.WeatherIcon.snowDay)
     }
