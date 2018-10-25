@@ -30,8 +30,11 @@ final class WeatherBubbleInfoView: UIView, NibOwnerLoadable {
     super.awakeFromNib()
     
     self.backgroundColor = UIColor.white
+    self.alpha = 1
     self.layer.cornerRadius = 20
-    self.alpha = 0.7
+    
+    self.iconImage.tintColor = UIColor(named: .yellow)
+    self.contentLabel.textColor = UIColor(named: .blue)
     
     self.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     self.setupview()
@@ -43,7 +46,6 @@ final class WeatherBubbleInfoView: UIView, NibOwnerLoadable {
     self.icon = icon
     self.contentText = contentText
     self.setupview()
-    
   }
   
   // MARK: Privates
