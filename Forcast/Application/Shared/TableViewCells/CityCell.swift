@@ -45,24 +45,24 @@ final class CityCell: UITableViewCell, NibReusable {
     }
 
     self.nameLabel.text = self.name
-    self.favoriteImage.image = UserDefaults.standard.favoriteCities.contains(cityID) ?
+    self.favoriteImage.image = UserDefaults.standard.favedCities.contains(cityID) ?
       UIImage(asset: Asset.starPlain) : UIImage(asset: Asset.starEmpty)
   }
 
   @IBAction func favoriteButtonTouchedUp(_ sender: Any) {
     guard let cityID = self.cityID else { return }
     
-    if UserDefaults.standard.favoriteCities.contains(cityID) {
-      UserDefaults.standard.favoriteCities = UserDefaults.standard.favoriteCities.filter({$0 != cityID})
+    if UserDefaults.standard.favedCities.contains(cityID) {
+      UserDefaults.standard.favedCities = UserDefaults.standard.favedCities.filter({$0 != cityID})
       
       // TODO: Remove city from Realm as well
     } else {
-      guard UserDefaults.standard.favoriteCities.count < 20 else {
+      guard UserDefaults.standard.favedCities.count < 20 else {
         // TODO: Build delegate AddCityVC side to show an alert
         log.error("More than 20 favorties")
         return
       }
-      UserDefaults.standard.favoriteCities.append(cityID)
+      UserDefaults.standard.favedCities.append(cityID)
     }
     
     self.setupCell()

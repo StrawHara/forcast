@@ -62,7 +62,7 @@ final class CitiesViewController: UIViewController, StoryboardBased {
     
     self.dataSource = []
     self.dataSource.append(contentsOf: Array(cities.filter({
-      UserDefaults.standard.favoriteCities.contains($0.identifier)
+      UserDefaults.standard.favedCities.contains($0.identifier)
     })))
     self.collectionView.reloadData()
   }
@@ -93,8 +93,7 @@ final class CitiesViewController: UIViewController, StoryboardBased {
   // MARK: @objc
   @objc
   func handleRefresh(_ refreshControl: UIRefreshControl) {
-    // TODO: vv
-//    self.webServices?.fetchFavedCities()
+    self.webServices?.fetchFavedCities()
     self.refreshControl.endRefreshing()
   }
   

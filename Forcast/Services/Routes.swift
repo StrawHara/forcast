@@ -9,12 +9,12 @@
 import Foundation
 
 public enum Route {
-  case forecast(city: String)
+  case city(cityID: String)
   case find(lat: Double, lon: Double)
   
   public var path: String {
     switch self {
-    case .forecast(let city): return "forecast?q=\(city)&APPID=\(Environment.accessToken)"
+    case .city(let cityID): return "forecast?q=\(cityID)&APPID=\(Environment.accessToken)"
     case .find(let lat, let lon): return "find?lat=\(lat)&lon=\(lon)&cnt=50&APPID=\(Environment.accessToken)"
     }
   }

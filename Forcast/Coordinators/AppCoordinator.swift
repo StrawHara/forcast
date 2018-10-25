@@ -56,16 +56,15 @@ class AppCoordinator: NSObject {
   func start() {
     self.tabbarController.delegate = self
 
-// TODO: vv
-//    self.webServices.fetchHistory()
+    self.webServices.fetchFavedCities()
 
+    // TODO: vv
     // Check if favorites or paris as first one -> Mean default db or default nsuserdefault
     // Favorites sotred in userDefault
     // Store Paris if no one setted
     
     // Load app on list with only paris
     // empty view -> redirect to add City
-    
     
     self.launch()
   }

@@ -8,9 +8,11 @@
 
 import Foundation
 
+// MARK: Warning - Do not create duplicates
+
 extension UserDefaults {
   
-  var favoriteCities: [String] {
+  var favedCities: [String] {
     get { let anyArray = array(forKey: #function) ?? []
       guard let stringArray = anyArray as? [String] else {
         return []

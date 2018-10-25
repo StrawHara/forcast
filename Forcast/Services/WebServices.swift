@@ -24,11 +24,39 @@ final class WebServices {
         switch response.result {
         case .success:
           let serializer = JSONSerializer()
-          serializer.serialize(input: response.data)
+          serializer.serialize(input: response.data,
+                               sourceType: .city)
         case .failure(let error):
           log.error(error)
         }
     }
+  }
+  
+  func fetchFavedCities() {
+    for cityID in UserDefaults.standard.favedCities {
+      self.fetchCity(cityID: cityID)
+    }
+  }
+  
+  func fetchCity(cityID: String) {
+    guard let url = URL(string: Environment.baseURL + Route.city(cityID: cityID).description) else {
+      return
+    }
+    
+    Alamofire.request(url)
+      .validate(statusCode: 200..<300)
+      .validate(contentType: ["application/json"])
+      .responseData { response in
+        switch response.result {
+        case .success:
+          let serializer = JSONSerializer()
+          serializer.serialize(input: response.data,
+                               sourceType: .forecast(cityID: cityID))
+        case .failure(let error):
+          log.error(error)
+        }
+    }
+    
   }
   
 }
