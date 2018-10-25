@@ -10,13 +10,48 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="M6a-AA-nNL" customClass="CityHeaderCell" customModule="Forcast" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="364" id="M6a-AA-nNL" customClass="CityHeaderCell" customModule="Forcast" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="302" height="269"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="M6a-AA-nNL" id="YYN-0v-Lcq">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="302" height="268.5"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clear_sky_day" translatesAutoresizingMaskIntoConstraints="NO" id="d5W-0O-B2A">
+                        <rect key="frame" x="76" y="59.5" width="150" height="150"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="150" id="U8n-LR-mZS"/>
+                            <constraint firstAttribute="width" constant="150" id="fM6-N8-DUe"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tz3-K0-O5u">
+                        <rect key="frame" x="20" y="229.5" width="262" height="19"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="d5W-0O-B2A" secondAttribute="trailing" constant="20" id="6dU-Ke-Clw"/>
+                    <constraint firstAttribute="trailing" secondItem="Tz3-K0-O5u" secondAttribute="trailing" constant="20" id="8iT-gE-e8y"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="d5W-0O-B2A" secondAttribute="bottom" constant="20" id="98l-65-utX"/>
+                    <constraint firstAttribute="bottom" secondItem="Tz3-K0-O5u" secondAttribute="bottom" constant="20" id="BFk-Ly-RCj"/>
+                    <constraint firstItem="d5W-0O-B2A" firstAttribute="centerY" secondItem="YYN-0v-Lcq" secondAttribute="centerY" id="JX0-0V-Qq6"/>
+                    <constraint firstItem="d5W-0O-B2A" firstAttribute="top" relation="greaterThanOrEqual" secondItem="YYN-0v-Lcq" secondAttribute="top" constant="20" id="SEY-34-fix"/>
+                    <constraint firstItem="Tz3-K0-O5u" firstAttribute="top" relation="greaterThanOrEqual" secondItem="d5W-0O-B2A" secondAttribute="bottom" constant="20" id="Tve-Te-EOb"/>
+                    <constraint firstItem="d5W-0O-B2A" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="YYN-0v-Lcq" secondAttribute="leading" constant="20" id="eLS-v9-2fk"/>
+                    <constraint firstItem="Tz3-K0-O5u" firstAttribute="leading" secondItem="YYN-0v-Lcq" secondAttribute="leading" constant="20" id="sdP-Pk-rKp"/>
+                    <constraint firstItem="d5W-0O-B2A" firstAttribute="centerX" secondItem="YYN-0v-Lcq" secondAttribute="centerX" id="slg-D2-EDS"/>
+                </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="analysisLabel" destination="Tz3-K0-O5u" id="8M2-eU-SDE"/>
+                <outlet property="iconImage" destination="d5W-0O-B2A" id="79N-bn-szF"/>
+            </connections>
+            <point key="canvasLocation" x="188.80000000000001" y="192.05397301349328"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="clear_sky_day" width="70" height="66"/>
+    </resources>
 </document>

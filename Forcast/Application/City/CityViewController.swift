@@ -31,9 +31,9 @@ final class CityViewController: UIViewController, StoryboardBased {
     let refreshControl = UIRefreshControl()
     refreshControl.addTarget(self, action: #selector(self.handleRefresh(_:)),
                              for: UIControl.Event.valueChanged)
-    refreshControl.tintColor = UIColor(named: .red)
-    // TODO: Poeditor vv
-    refreshControl.attributedTitle = NSAttributedString(string: "Refresh", attributes: nil)
+    refreshControl.tintColor = UIColor(named: .blue)
+    refreshControl.attributedTitle = NSAttributedString(string: L10n.refresh,
+                                                        attributes: [.foregroundColor: UIColor(named: .blue)])
     return refreshControl
   }()
   
@@ -52,8 +52,6 @@ final class CityViewController: UIViewController, StoryboardBased {
   // MARK: Init
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    self.title = L10n.city
     
     self.setupTableView()
     self.setupRealm()
@@ -85,6 +83,7 @@ final class CityViewController: UIViewController, StoryboardBased {
     self.citiesResults = Realm.safeInstance().objects(FCCity.self).filter(predicate)
     
     self.citiesNotificationToken = self.citiesResults?.observe { [weak self] _ in
+      self?.title = self?.city?.name
       self?.tableView.reloadData()
     }
     
@@ -131,25 +130,27 @@ extension CityViewController: UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    
     var cell = UITableViewCell()
-    
+    guard let city = self.city else { return cell }
+
     switch self.cells[indexPath.row] {
     case .header:
       let headerCell = self.tableView.dequeueReusableCell(for: indexPath) as CityHeaderCell
-      headerCell.setup()
+      headerCell.setup(timestamp: self.city?.weather?.dateTime,
+                       analysis: self.city?.weather?.analysis?.main,
+                       analysisDescription: self.city?.weather?.analysis?.analysisDescription)
       cell = headerCell
     case .temp:
       let tempCell = self.tableView.dequeueReusableCell(for: indexPath) as CityStatsCell
-      tempCell.setup()
+      tempCell.setup(weatherInfoType: .temp, city: city)
       cell = tempCell
     case .wind:
       let windCell = self.tableView.dequeueReusableCell(for: indexPath) as CityStatsCell
-      windCell.setup()
+      windCell.setup(weatherInfoType: .wind, city: city)
       cell = windCell
     case .rain:
       let rainCell = self.tableView.dequeueReusableCell(for: indexPath) as CityStatsCell
-      rainCell.setup()
+      rainCell.setup(weatherInfoType: .rain, city: city)
       cell = rainCell
     case .forecast:
       let forecastCell = self.tableView.dequeueReusableCell(for: indexPath) as CityForecastCell

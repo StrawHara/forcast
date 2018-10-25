@@ -9,15 +9,24 @@
 import UIKit
 import Reusable
 
-final class WeatherBubbleInfoView: UIView, NibOwnerLoadable {
+enum WeatherInfoType: Int {
+  case temp = 0
+  case clouds
+  case wind
+  case rain
+}
 
+final class WeatherBubbleInfoView: UIView, NibOwnerLoadable {
+  
   // MARK: Outlets
   @IBOutlet weak var iconImage: UIImageView!
   @IBOutlet weak var contentLabel: UILabel!
-
+  
   // MARK: Properties
   private var icon: UIImage?
+  private var weatherInfoType: WeatherInfoType?
   private var contentText: String?
+  private var isDarkMode: Bool = false
   
   // MARK: Init
   
@@ -33,18 +42,23 @@ final class WeatherBubbleInfoView: UIView, NibOwnerLoadable {
     self.alpha = 1
     self.layer.cornerRadius = 20
     
-    self.iconImage.tintColor = UIColor(named: .yellow)
-    self.contentLabel.textColor = UIColor(named: .blue)
-    
     self.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     self.setupview()
   }
   
   // MARK: Public
-  func setup(icon: UIImage, contentText: String) {
-    log.info("Yahou")
-    self.icon = icon
+  func setup(weatherInfoType: WeatherInfoType, contentText: String, darkMode: Bool = false) {
+    self.weatherInfoType = weatherInfoType
     self.contentText = contentText
+    self.isDarkMode = darkMode
+    
+    switch weatherInfoType {
+    case .clouds: self.icon = UIImage(asset: Asset.ElementsIcon.cloud)
+    case .rain: self.icon = UIImage(asset: Asset.ElementsIcon.umbrella)
+    case .temp: self.icon = UIImage(asset: Asset.ElementsIcon.thermometer)
+    case .wind: self.icon = UIImage(asset: Asset.ElementsIcon.wind)
+    }
+    
     self.setupview()
   }
   
@@ -52,6 +66,12 @@ final class WeatherBubbleInfoView: UIView, NibOwnerLoadable {
   func setupview() {
     self.iconImage.image = self.icon
     self.contentLabel.text = self.contentText
+    
+    self.iconImage.tintColor =  self.isDarkMode ?
+      UIColor(named: .blue) : UIColor(named: .yellow)
+    
+    self.contentLabel.textColor = self.isDarkMode ?
+      UIColor(named: .black) : UIColor(named: .blue)
   }
   
 }
