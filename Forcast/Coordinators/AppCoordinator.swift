@@ -74,10 +74,6 @@ class AppCoordinator: NSObject {
 
     self.citiesVC.setup(webServices: self.webServices, delegate: self)
     self.addCityVC.setup(webServices: self.webServices, delegate: self)
-
-    if UserDefaults.standard.favedCities.isEmpty {
-      UserDefaults.standard.favedCities = ["2988507"]
-    }
     
     self.webServices.findCity(lon: 2.3522, lat: 48.8566)
     

@@ -19,6 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
     
+    if UserDefaults.standard.favedCities.isEmpty {
+      UserDefaults.standard.favedCities = ["2988507"]
+    }
+    
     // MARK: AppCoordinator
     self.appCoordinator = AppCoordinator(window: self.window)
     self.appCoordinator.start()
