@@ -63,6 +63,11 @@ internal enum StoryboardScene {
 
     internal static let initialScene = InitialSceneType<Forcast.CitiesViewController>(storyboard: CitiesViewController.self)
   }
+  internal enum CityViewController: StoryboardType {
+    internal static let storyboardName = "CityViewController"
+
+    internal static let initialScene = InitialSceneType<Forcast.CityViewController>(storyboard: CityViewController.self)
+  }
   internal enum LaunchScreen: StoryboardType {
     internal static let storyboardName = "LaunchScreen"
 
