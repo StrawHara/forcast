@@ -14,7 +14,6 @@ final class CitiesViewController: UIViewController, StoryboardBased {
   // MARK: IBOutlets
   @IBOutlet weak var collectionView: UICollectionView!
   
-  
   // MARK: Properties
   private var citiesNotificationToken: NotificationToken?
   private var citiesResults: Results<FCCity>?
@@ -45,14 +44,16 @@ final class CitiesViewController: UIViewController, StoryboardBased {
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-    
-    self.handleRefresh(self.refreshControl)
+
+    self.setupDataSource()
   }
   
   // MARK: Public
   func setup(webServices: WebServices, delegate: AppCoordinatorDelegate) {
     self.webServices = webServices
     self.delegate = delegate
+    
+    self.handleRefresh(self.refreshControl)
   }
   
   // MARK: Private

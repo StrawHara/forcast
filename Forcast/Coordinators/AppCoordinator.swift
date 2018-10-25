@@ -79,6 +79,8 @@ class AppCoordinator: NSObject {
       UserDefaults.standard.favedCities = ["2988507"]
     }
     
+    self.webServices.findCity(lon: 2.3522, lat: 48.8566)
+    
     self.launch()
   }
   
