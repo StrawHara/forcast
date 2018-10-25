@@ -156,7 +156,6 @@ final class AddCityViewController: UIViewController, StoryboardBased {
   @objc
   func handleRefresh(_ refreshControl: UIRefreshControl) {
     self.webServices?.findCity(lon: 2.3522, lat: 48.8566)
-    self.setupDataSource()
     self.refreshControl.endRefreshing()
   }
   
@@ -184,7 +183,14 @@ extension AddCityViewController: UITableViewDataSource {
 }
 
 extension AddCityViewController: UITableViewDelegate {
-  // TODO: Show details
+
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    // TODO: Do that in AppCoordinator
+    let cityVC = CityViewController.instantiate()
+    cityVC.setup(webServices: self.webServices, cityID: self.dataSource[indexPath.row].identifier)
+    self.navigationController?.pushViewController(cityVC, animated: true)
+  }
+  
 }
 
 extension AddCityViewController: UISearchBarDelegate {

@@ -95,7 +95,6 @@ final class CitiesViewController: UIViewController, StoryboardBased {
   func handleRefresh(_ refreshControl: UIRefreshControl) {
     // TODO: vv
 //    self.webServices?.fetchFavedCities()
-    self.setupDataSource()
     self.refreshControl.endRefreshing()
   }
   
@@ -144,8 +143,10 @@ extension CitiesViewController: UICollectionViewDelegateFlowLayout {
 extension CitiesViewController: UICollectionViewDelegate {
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    // TODO: Push DetailsVC from AppCoord if time
-    // or simple push instead
+    // TODO: Do that in AppCoordinator
+    let cityVC = CityViewController.instantiate()
+    cityVC.setup(webServices: self.webServices, cityID: self.dataSource[indexPath.row].identifier)
+    self.navigationController?.pushViewController(cityVC, animated: true)
   }
   
 }
